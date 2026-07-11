@@ -158,6 +158,7 @@
         <section>
             <h2>Host Banner Preview</h2>
             <p>Recommended size: 673 x 135. This preview loads <code>host.html</code>.</p>
+            <p><strong>L4D1 note:</strong> do not use <code>github.io</code> in <code>myhost.txt</code>. GitHub Pages is HTTPS-only and the game shows the URL as yellow text. Use inline HTML in <code>myhost.txt</code>, or the raw HTTP link below.</p>
 
             <div class="preview-frame">
                 <iframe src="host.html" title="Host banner preview"></iframe>
@@ -177,7 +178,8 @@
         <section>
             <h2>Server Setup</h2>
             <ol>
-                <li>Put this URL on a single line in <code>left4dead/myhost.txt</code> on your server.</li>
+                <li><strong>Recommended:</strong> paste the full contents of <code>host.html</code> into <code>left4dead/myhost.txt</code> on your server.</li>
+                <li><strong>URL fallback:</strong> if you must use a link, use the raw HTTP URL above. Do not use <code>https://</code> or <code>*.github.io</code>.</li>
                 <li>Keep <code>hostfile "myhost.txt"</code> in <code>server.cfg</code>.</li>
                 <li>Restart the map or server, then check the lobby host panel.</li>
             </ol>
@@ -186,7 +188,7 @@
 
     <script>
         (function () {
-            var hostUrl = new URL("host.html", window.location.href).href;
+            var hostUrl = "http://raw.githubusercontent.com/cynibro/l4d-nise-server-assets/main/host.html";
             var input = document.getElementById("host-url");
             var button = document.getElementById("copy-host-url");
             var status = document.getElementById("copy-status");
